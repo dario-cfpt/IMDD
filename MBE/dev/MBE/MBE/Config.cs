@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* 
+ * Author : Genga Dario & Loureiro Ronaldo
+ * Date : 09.03.18
+ * Description : Class Config
+ * Version : 1.0
+ * 
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
