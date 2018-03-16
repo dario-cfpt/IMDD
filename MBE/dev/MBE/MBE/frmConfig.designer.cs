@@ -54,9 +54,9 @@
             this.btnModifyConfig = new System.Windows.Forms.Button();
             this.btnLauchEmulator = new System.Windows.Forms.Button();
             this.msMain = new System.Windows.Forms.MenuStrip();
-            this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmConfiguration = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.gbFormat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRow)).BeginInit();
@@ -94,9 +94,6 @@
             // 
             this.cbxConfig.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxConfig.FormattingEnabled = true;
-            this.cbxConfig.Items.AddRange(new object[] {
-            "Test1",
-            "Test2"});
             this.cbxConfig.Location = new System.Drawing.Point(114, 41);
             this.cbxConfig.Name = "cbxConfig";
             this.cbxConfig.Size = new System.Drawing.Size(308, 21);
@@ -109,6 +106,7 @@
             this.tbxWindowURL.Name = "tbxWindowURL";
             this.tbxWindowURL.Size = new System.Drawing.Size(308, 20);
             this.tbxWindowURL.TabIndex = 4;
+            this.tbxWindowURL.TextChanged += new System.EventHandler(this.tbxWindowURL_TextChanged);
             this.tbxWindowURL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxWindowURL_KeyPress);
             // 
             // gbFormat
@@ -132,6 +130,7 @@
             this.gbFormat.TabIndex = 5;
             this.gbFormat.TabStop = false;
             this.gbFormat.Text = "Format";
+            this.gbFormat.Enter += new System.EventHandler(this.gbFormat_Enter);
             // 
             // chkZoomBottom
             // 
@@ -207,16 +206,36 @@
             // nudCol
             // 
             this.nudCol.Location = new System.Drawing.Point(350, 87);
+            this.nudCol.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudCol.Name = "nudCol";
             this.nudCol.Size = new System.Drawing.Size(34, 20);
             this.nudCol.TabIndex = 5;
+            this.nudCol.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // nudRow
             // 
             this.nudRow.Location = new System.Drawing.Point(275, 87);
+            this.nudRow.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudRow.Name = "nudRow";
             this.nudRow.Size = new System.Drawing.Size(34, 20);
             this.nudRow.TabIndex = 4;
+            this.nudRow.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // tbxCustomFormat
             // 
@@ -321,32 +340,32 @@
             // 
             this.msMain.BackColor = System.Drawing.SystemColors.Control;
             this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configurationToolStripMenuItem,
-            this.aideToolStripMenuItem,
-            this.toolStripMenuItem1});
+            this.tsmConfiguration,
+            this.tsmHelp,
+            this.tsmAbout});
             this.msMain.Location = new System.Drawing.Point(0, 0);
             this.msMain.Name = "msMain";
             this.msMain.Size = new System.Drawing.Size(436, 24);
             this.msMain.TabIndex = 18;
             this.msMain.Text = "menuStrip1";
             // 
-            // configurationToolStripMenuItem
+            // tsmConfiguration
             // 
-            this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
-            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
-            this.configurationToolStripMenuItem.Text = "Configuration";
+            this.tsmConfiguration.Name = "tsmConfiguration";
+            this.tsmConfiguration.Size = new System.Drawing.Size(93, 20);
+            this.tsmConfiguration.Text = "Configuration";
             // 
-            // aideToolStripMenuItem
+            // tsmHelp
             // 
-            this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
-            this.aideToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.aideToolStripMenuItem.Text = "Aide";
+            this.tsmHelp.Name = "tsmHelp";
+            this.tsmHelp.Size = new System.Drawing.Size(43, 20);
+            this.tsmHelp.Text = "Aide";
             // 
-            // toolStripMenuItem1
+            // tsmAbout
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
-            this.toolStripMenuItem1.Text = "?";
+            this.tsmAbout.Name = "tsmAbout";
+            this.tsmAbout.Size = new System.Drawing.Size(24, 20);
+            this.tsmAbout.Text = "?";
             // 
             // frmConfig
             // 
@@ -369,6 +388,7 @@
             this.MainMenuStrip = this.msMain;
             this.Name = "frmConfig";
             this.Text = "Multiple Browsers Emulator";
+            this.Load += new System.EventHandler(this.frmConfig_Load);
             this.gbFormat.ResumeLayout(false);
             this.gbFormat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCol)).EndInit();
@@ -408,9 +428,9 @@
         private System.Windows.Forms.Button btnModifyConfig;
         private System.Windows.Forms.Button btnLauchEmulator;
         private System.Windows.Forms.MenuStrip msMain;
-        private System.Windows.Forms.ToolStripMenuItem configurationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsmConfiguration;
+        private System.Windows.Forms.ToolStripMenuItem tsmHelp;
+        private System.Windows.Forms.ToolStripMenuItem tsmAbout;
     }
 }
 

@@ -19,24 +19,26 @@ namespace MBE
     {
         private Config _currentConfig;
         private List<Config> _listConfig;
+        private static Emulator _instance;
 
         /// <summary>
-        /// Initialize the Emulator by creating a new config
+        /// Initialize the Emulator
         /// </summary>
-        /// <param name="confName">The name of the config</param>
-        /// <param name="url">The url of the config</param>
-        /// <param name="paramUrl">The parameter for the url of the config</param>
-        /// <param name="row">The number of WebBrowser per row</param>
-        /// <param name="col">The number of WebBrowser per column</param>
-        /// <param name="zoomTop">Indicate the row of the top has additionnal WebBrowser for zoom effect</param>
-        /// <param name="zoomRight">Indicate the column of the right has additionnal WebBrowser for zoom effect</param>
-        /// <param name="zoomBottom">Indicate the row of the bottom has additionnal WebBrowser for zoom effect</param>
-        /// <param name="zoomLeft">Indicate the column of the left has additionnal WebBrowser for zoom effect</param>
-        public Emulator(string configName, string url, string paramUrl, int row, int col, bool zoomTop, bool zoomRight, bool zoomLeft, bool zoomBottom)
+        private Emulator()
         {
             ListConfig = new List<Config>();
-            CurrentConfig = CreateConfig(configName, url, paramUrl, row, col, zoomTop, zoomRight, zoomLeft, zoomBottom);      
         }
+
+        public static Emulator GetIntance()
+        {
+            if (Instance == null)
+            {
+                Instance = new Emulator(); 
+            }
+
+            return Instance;
+        }
+
         /// <summary>
         /// The current config used
         /// </summary>
@@ -46,6 +48,7 @@ namespace MBE
         /// Contains all config
         /// </summary>
         public List<Config> ListConfig { get => _listConfig; private set => _listConfig = value; }
+        private static Emulator Instance { get => _instance; set => _instance = value; }
 
         /// <summary>
         /// Create a config
