@@ -12,14 +12,28 @@ namespace MBE
 {
     public partial class frmConfig : Form
     {
+        private List<Config> _listConfig;
+        private Config _morpion;
+        public List<Config> ListConfig { get => _listConfig; set => _listConfig = value; }
+        public Config Morpion { get => _morpion; set => _morpion = value; }
+
         public frmConfig()
         {
             InitializeComponent();
 
+            ListConfig = new List<Config>();
+            Morpion = new Config("Morpion", "https://10.134.96.14/Morpion.php", "row/col", 3, 3);
+
+            ListConfig.Add(Morpion);
+            foreach (Config  configuration in ListConfig)
+            {
+                cbxConfig.Items.Add(configuration.ConfigName);
+            }
             rdbRowCol.Checked = true;
             cbxConfig.SelectedIndex = 0;
-            cbxViewType.SelectedIndex = 0;
-            tbxCustomFormat.Enabled = false;
+            
+
+
         }
 
         private void btnAddConfig_Click(object sender, EventArgs e)
@@ -28,10 +42,14 @@ namespace MBE
             {
                 int selectedIndexConfig = cbxConfig.SelectedIndex;
                 string url = tbxWindowURL.Text;
-                string paramURL;
+                string paramURL = "";
                 int row = Convert.ToInt32(nudRow.Value);
                 int col = Convert.ToInt32(nudCol.Value);
-                bool zoomTop, zoomBottom, zoomLeft, zoomRight, urlParamColRow, urlParamExcel, urlParamCustom;
+                bool zoomTop = false;
+                bool zoomBottom = false;
+                bool zoomLeft = false;
+                bool zoomRight = false;
+                bool urlParamColRow, urlParamExcel, urlParamCustom;
                 string configurationName = tbxCustomConfigName.Text;
 
                 if (rdbRowCol.Checked)
@@ -73,6 +91,7 @@ namespace MBE
                     configurationName = "ConfigPerso" + cbxConfig.Items.Count;
                 }
 
+                Emulator.GetIntance().CreateConfig(configurationName, url, paramURL, row, col, zoomTop, zoomRight, zoomBottom, zoomLeft);
             }
             catch (Exception)
             {
@@ -87,7 +106,7 @@ namespace MBE
 
         private void btnLauchEmulator_Click(object sender, EventArgs e)
         {
-
+            frmView view = new frmView();
         }
 
         private void btnDeleteConfig_Click(object sender, EventArgs e)
@@ -105,7 +124,12 @@ namespace MBE
 
         private void cbxConfig_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string name = "";
+            cbxViewType.SelectedIndex = 0;
+            tbxCustomFormat.Enabled = false;
+            nudCol.Value = Morpion.Col;
+            nudRow.Value = Morpion.Row;
+            cbxConfig.Items.Add(ListConfig.Select(c => c.ConfigName == Morpion.ConfigName).ToArray()[0]);
         }
 
         private void cbxViewType_SelectedIndexChanged(object sender, EventArgs e)
@@ -150,11 +174,28 @@ namespace MBE
             if (rdbCustom.Checked)
             {
                 tbxCustomFormat.Enabled = true;
-            } else
+            }
+            else
             {
                 tbxCustomFormat.Enabled = false;
                 tbxCustomFormat.Text = null;
             }
+        }
+
+        private void gbFormat_Enter(object sender, EventArgs e)
+        {
+            btnAddConfig.Enabled = true;
+            tbxCustomConfigName.Enabled = true;
+        }
+
+        private void tbxWindowURL_TextChanged(object sender, EventArgs e)
+        {
+            btnLauchEmulator.Enabled = (tbxWindowURL.Text != "") ? true : false;
+        }
+
+        private void frmConfig_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
