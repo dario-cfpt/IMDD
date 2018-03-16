@@ -8,26 +8,39 @@
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="./js/bootstrap.js"></script>
+    <script>
+
+
+    </script>
 </head>
 <body>
 <fieldset>
-        <table class="table table-striped table-dark">
-            <tbody>
-            <tr>
-                <td><a href="html/snake_index.html">Jeu du snake</a></td>
-            </tr>
-            <tr>
-                <td><a href="html/Taquin.php">Taquin</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">Memory</a></td>
-            </tr>
-            </tbody>
-        </table>
-</fieldset>
-        <!--
+    <table class="table table-striped table-dark">
+        <tbody>
         <tr>
-            <td></td>
-        </tr>-->
+            <td><a href="html/snake_index.html">Jeu du snake</a></td>
+        </tr>
+        <tr>
+            <td><a href="html/Taquin.php">Taquin</a></td>
+        </tr>
+        <tr>
+            <td><a href="#">Memory</a></td>
+        </tr>
+        </tbody>
+    </table>
+</fieldset>
 </body>
 </html>
+<?php
+$ecran = array();
+for ($i = 1; $i <= 10; $i++) {
+    $ecran[$i][0] = $i;
+    $ecran[$i][1] = "E";
+}
+
+
+
+    if ($_GET['id']>$ecran.count()){
+    echo"error";
+    }
+?>
