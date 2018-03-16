@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MBE
 {
-    public partial class frmMain : Form
+    public partial class frmView : Form
     {
-        public frmMain()
+        public frmView()
         {
             InitializeComponent();
         }
