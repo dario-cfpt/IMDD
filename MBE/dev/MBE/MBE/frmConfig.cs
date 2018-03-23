@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace MBE
 {
@@ -15,6 +16,7 @@ namespace MBE
         private List<Config> _listConfig;
         private Config _morpion;
         private Config _currentConfig;
+      
 
         public List<Config> ListConfig { get => _listConfig; set => _listConfig = value; }
         public Config Morpion { get => _morpion; set => _morpion = value; }
@@ -25,7 +27,7 @@ namespace MBE
             InitializeComponent();
 
             ListConfig = new List<Config>();
-            Morpion = new Config("Morpion", "https://10.134.97.39/php/imdd.php/", "row/col", 3, 3);
+            Morpion = new Config("Morpion", "http://10.134.97.39/php/imdd.php", "id", 3, 3); // Configuration for TicTacToe
 
             ListConfig.Add(Morpion);
             foreach (Config configuration in ListConfig)
@@ -36,6 +38,11 @@ namespace MBE
             cbxConfig.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// This function add an configuration
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddConfig_Click(object sender, EventArgs e)
         {
             try
@@ -55,7 +62,7 @@ namespace MBE
                 if (rdbRowCol.Checked)
                 {
                     urlParamColRow = true;
-                    paramURL = "row1/col1";
+                    paramURL = "id";
                 }
                 if (rdbExcel.Checked)
                 {
@@ -104,19 +111,23 @@ namespace MBE
 
         }
 
+        /// <summary>
+        /// This function launch the emulator with the current configuration
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLauchEmulator_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            Emulator.GetIntance().ChangeCurrentConfig(CurrentConfig);
-            frmView view = new frmView();
-            view.ShowDialog();
-=======
-            frmView view = new frmView(this, Morpion);
+            frmView view = new frmView(this, CurrentConfig);
             view.Show();
             this.Hide();
->>>>>>> 3c661aa040f9a9494a9b0309501552be2658b835
         }
 
+        /// <summary>
+        /// This function delete the selected configuration
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDeleteConfig_Click(object sender, EventArgs e)
         {
 
@@ -130,6 +141,11 @@ namespace MBE
             }
         }
 
+        /// <summary>
+        /// When the index change we reatribute the current configuration
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxConfig_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -138,8 +154,8 @@ namespace MBE
                 string name = "";
                 cbxViewType.SelectedIndex = 0;
                 tbxCustomFormat.Enabled = false;
-                nudCol.Value = Morpion.Col;
-                nudRow.Value = Morpion.Row;
+                nudCol.Value = CurrentConfig.Col;
+                nudRow.Value = CurrentConfig.Row;
                 // cbxConfig.Items.Add(ListConfig.Select(c => c.ConfigName == Morpion.ConfigName).ToArray()[0]);
                 tbxWindowURL.Text = Morpion.Url;
             } catch (Exception ex)
@@ -218,7 +234,13 @@ namespace MBE
             btnDeleteConfig.Enabled = false;
             btnModifyConfig.Enabled = false;
             lblCustomConfigName.Enabled = false;
-            #endregion
+            #endregion // We disable all the component because the app isn't dynamic
+        }
+
+        private void tsmAbout_Click(object sender, EventArgs e)
+        {
+            frmAbout about = new frmAbout();
+            about.ShowDialog();
         }
     }
 }

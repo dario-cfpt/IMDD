@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("MBE")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Multiple Browsers Emulator")]
+[assembly: AssemblyDescription("Multiple Browsers Emulator (MBE) sert à émuler plusieurs navigateur web paramètrables")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MBE")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCompany("CFPT-I")]
+[assembly: AssemblyProduct("Multiple Browsers Emulator")]
+[assembly: AssemblyCopyright("Copyright © 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

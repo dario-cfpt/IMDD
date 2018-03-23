@@ -34,19 +34,22 @@
             this.cbxConfig = new System.Windows.Forms.ComboBox();
             this.tbxWindowURL = new System.Windows.Forms.TextBox();
             this.gbParam = new System.Windows.Forms.GroupBox();
-            this.chkZoomBottom = new System.Windows.Forms.CheckBox();
-            this.chkZoomLeft = new System.Windows.Forms.CheckBox();
-            this.chkZoomRight = new System.Windows.Forms.CheckBox();
-            this.chkZoomTop = new System.Windows.Forms.CheckBox();
-            this.cbxViewType = new System.Windows.Forms.ComboBox();
-            this.lblNbRow = new System.Windows.Forms.Label();
-            this.nudCol = new System.Windows.Forms.NumericUpDown();
-            this.nudRow = new System.Windows.Forms.NumericUpDown();
-            this.tbxCustomFormat = new System.Windows.Forms.TextBox();
-            this.rdbCustom = new System.Windows.Forms.RadioButton();
-            this.rdbExcel = new System.Windows.Forms.RadioButton();
+            this.gbFormat = new System.Windows.Forms.GroupBox();
             this.rdbRowCol = new System.Windows.Forms.RadioButton();
+            this.rdbExcel = new System.Windows.Forms.RadioButton();
+            this.rdbCustom = new System.Windows.Forms.RadioButton();
+            this.tbxCustomFormat = new System.Windows.Forms.TextBox();
+            this.gbViewType = new System.Windows.Forms.GroupBox();
+            this.chkZoomRight = new System.Windows.Forms.CheckBox();
+            this.chkZoomBottom = new System.Windows.Forms.CheckBox();
+            this.chkZoomTop = new System.Windows.Forms.CheckBox();
+            this.chkZoomLeft = new System.Windows.Forms.CheckBox();
+            this.cbxViewType = new System.Windows.Forms.ComboBox();
+            this.gbRowCol = new System.Windows.Forms.GroupBox();
             this.lblNbCol = new System.Windows.Forms.Label();
+            this.lblNbRow = new System.Windows.Forms.Label();
+            this.nudRow = new System.Windows.Forms.NumericUpDown();
+            this.nudCol = new System.Windows.Forms.NumericUpDown();
             this.tbxCustomConfigName = new System.Windows.Forms.TextBox();
             this.btnAddConfig = new System.Windows.Forms.Button();
             this.btnDeleteConfig = new System.Windows.Forms.Button();
@@ -56,16 +59,13 @@
             this.tsmConfiguration = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.gbFormat = new System.Windows.Forms.GroupBox();
-            this.gbRowCol = new System.Windows.Forms.GroupBox();
-            this.gbViewType = new System.Windows.Forms.GroupBox();
             this.gbParam.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCol)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRow)).BeginInit();
-            this.msMain.SuspendLayout();
             this.gbFormat.SuspendLayout();
-            this.gbRowCol.SuspendLayout();
             this.gbViewType.SuspendLayout();
+            this.gbRowCol.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCol)).BeginInit();
+            this.msMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblConfig
@@ -127,25 +127,73 @@
             this.gbParam.Text = "Paramètres";
             this.gbParam.Enter += new System.EventHandler(this.gbFormat_Enter);
             // 
-            // chkZoomBottom
+            // gbFormat
             // 
-            this.chkZoomBottom.AutoSize = true;
-            this.chkZoomBottom.Location = new System.Drawing.Point(205, 52);
-            this.chkZoomBottom.Name = "chkZoomBottom";
-            this.chkZoomBottom.Size = new System.Drawing.Size(73, 17);
-            this.chkZoomBottom.TabIndex = 12;
-            this.chkZoomBottom.Text = "Zoom bas";
-            this.chkZoomBottom.UseVisualStyleBackColor = true;
+            this.gbFormat.Controls.Add(this.rdbRowCol);
+            this.gbFormat.Controls.Add(this.rdbExcel);
+            this.gbFormat.Controls.Add(this.rdbCustom);
+            this.gbFormat.Controls.Add(this.tbxCustomFormat);
+            this.gbFormat.Location = new System.Drawing.Point(12, 16);
+            this.gbFormat.Name = "gbFormat";
+            this.gbFormat.Size = new System.Drawing.Size(226, 100);
+            this.gbFormat.TabIndex = 13;
+            this.gbFormat.TabStop = false;
+            this.gbFormat.Text = "Format";
             // 
-            // chkZoomLeft
+            // rdbRowCol
             // 
-            this.chkZoomLeft.AutoSize = true;
-            this.chkZoomLeft.Location = new System.Drawing.Point(97, 29);
-            this.chkZoomLeft.Name = "chkZoomLeft";
-            this.chkZoomLeft.Size = new System.Drawing.Size(92, 17);
-            this.chkZoomLeft.TabIndex = 11;
-            this.chkZoomLeft.Text = "Zoom gauche";
-            this.chkZoomLeft.UseVisualStyleBackColor = true;
+            this.rdbRowCol.AutoSize = true;
+            this.rdbRowCol.Location = new System.Drawing.Point(6, 19);
+            this.rdbRowCol.Name = "rdbRowCol";
+            this.rdbRowCol.Size = new System.Drawing.Size(111, 17);
+            this.rdbRowCol.TabIndex = 0;
+            this.rdbRowCol.TabStop = true;
+            this.rdbRowCol.Text = "Lignes / Colonnes";
+            this.rdbRowCol.UseVisualStyleBackColor = true;
+            // 
+            // rdbExcel
+            // 
+            this.rdbExcel.AutoSize = true;
+            this.rdbExcel.Location = new System.Drawing.Point(165, 19);
+            this.rdbExcel.Name = "rdbExcel";
+            this.rdbExcel.Size = new System.Drawing.Size(51, 17);
+            this.rdbExcel.TabIndex = 1;
+            this.rdbExcel.TabStop = true;
+            this.rdbExcel.Text = "Excel";
+            this.rdbExcel.UseVisualStyleBackColor = true;
+            // 
+            // rdbCustom
+            // 
+            this.rdbCustom.AutoSize = true;
+            this.rdbCustom.Location = new System.Drawing.Point(6, 71);
+            this.rdbCustom.Name = "rdbCustom";
+            this.rdbCustom.Size = new System.Drawing.Size(85, 17);
+            this.rdbCustom.TabIndex = 2;
+            this.rdbCustom.TabStop = true;
+            this.rdbCustom.Text = "Personnalisé";
+            this.rdbCustom.UseVisualStyleBackColor = true;
+            this.rdbCustom.CheckedChanged += new System.EventHandler(this.rdbCustom_CheckedChanged);
+            // 
+            // tbxCustomFormat
+            // 
+            this.tbxCustomFormat.Location = new System.Drawing.Point(97, 71);
+            this.tbxCustomFormat.Name = "tbxCustomFormat";
+            this.tbxCustomFormat.Size = new System.Drawing.Size(119, 20);
+            this.tbxCustomFormat.TabIndex = 3;
+            // 
+            // gbViewType
+            // 
+            this.gbViewType.Controls.Add(this.chkZoomRight);
+            this.gbViewType.Controls.Add(this.chkZoomBottom);
+            this.gbViewType.Controls.Add(this.chkZoomTop);
+            this.gbViewType.Controls.Add(this.chkZoomLeft);
+            this.gbViewType.Controls.Add(this.cbxViewType);
+            this.gbViewType.Location = new System.Drawing.Point(12, 122);
+            this.gbViewType.Name = "gbViewType";
+            this.gbViewType.Size = new System.Drawing.Size(383, 80);
+            this.gbViewType.TabIndex = 15;
+            this.gbViewType.TabStop = false;
+            this.gbViewType.Text = "Type de vue";
             // 
             // chkZoomRight
             // 
@@ -157,6 +205,16 @@
             this.chkZoomRight.Text = "Zoom droit";
             this.chkZoomRight.UseVisualStyleBackColor = true;
             // 
+            // chkZoomBottom
+            // 
+            this.chkZoomBottom.AutoSize = true;
+            this.chkZoomBottom.Location = new System.Drawing.Point(205, 52);
+            this.chkZoomBottom.Name = "chkZoomBottom";
+            this.chkZoomBottom.Size = new System.Drawing.Size(73, 17);
+            this.chkZoomBottom.TabIndex = 12;
+            this.chkZoomBottom.Text = "Zoom bas";
+            this.chkZoomBottom.UseVisualStyleBackColor = true;
+            // 
             // chkZoomTop
             // 
             this.chkZoomTop.AutoSize = true;
@@ -166,6 +224,16 @@
             this.chkZoomTop.TabIndex = 9;
             this.chkZoomTop.Text = "Zoom haut";
             this.chkZoomTop.UseVisualStyleBackColor = true;
+            // 
+            // chkZoomLeft
+            // 
+            this.chkZoomLeft.AutoSize = true;
+            this.chkZoomLeft.Location = new System.Drawing.Point(97, 29);
+            this.chkZoomLeft.Name = "chkZoomLeft";
+            this.chkZoomLeft.Size = new System.Drawing.Size(92, 17);
+            this.chkZoomLeft.TabIndex = 11;
+            this.chkZoomLeft.Text = "Zoom gauche";
+            this.chkZoomLeft.UseVisualStyleBackColor = true;
             // 
             // cbxViewType
             // 
@@ -180,6 +248,28 @@
             this.cbxViewType.TabIndex = 8;
             this.cbxViewType.SelectedIndexChanged += new System.EventHandler(this.cbxViewType_SelectedIndexChanged);
             // 
+            // gbRowCol
+            // 
+            this.gbRowCol.Controls.Add(this.lblNbCol);
+            this.gbRowCol.Controls.Add(this.lblNbRow);
+            this.gbRowCol.Controls.Add(this.nudRow);
+            this.gbRowCol.Controls.Add(this.nudCol);
+            this.gbRowCol.Location = new System.Drawing.Point(245, 16);
+            this.gbRowCol.Name = "gbRowCol";
+            this.gbRowCol.Size = new System.Drawing.Size(150, 100);
+            this.gbRowCol.TabIndex = 14;
+            this.gbRowCol.TabStop = false;
+            this.gbRowCol.Text = "Lignes / Colonnes";
+            // 
+            // lblNbCol
+            // 
+            this.lblNbCol.AutoSize = true;
+            this.lblNbCol.Location = new System.Drawing.Point(78, 35);
+            this.lblNbCol.Name = "lblNbCol";
+            this.lblNbCol.Size = new System.Drawing.Size(66, 13);
+            this.lblNbCol.TabIndex = 7;
+            this.lblNbCol.Text = "NBColonnes";
+            // 
             // lblNbRow
             // 
             this.lblNbRow.AutoSize = true;
@@ -188,23 +278,6 @@
             this.lblNbRow.Size = new System.Drawing.Size(52, 13);
             this.lblNbRow.TabIndex = 6;
             this.lblNbRow.Text = "NbLignes";
-            // 
-            // nudCol
-            // 
-            this.nudCol.Location = new System.Drawing.Point(93, 56);
-            this.nudCol.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudCol.Name = "nudCol";
-            this.nudCol.Size = new System.Drawing.Size(34, 20);
-            this.nudCol.TabIndex = 5;
-            this.nudCol.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // nudRow
             // 
@@ -223,55 +296,22 @@
             0,
             0});
             // 
-            // tbxCustomFormat
+            // nudCol
             // 
-            this.tbxCustomFormat.Location = new System.Drawing.Point(97, 71);
-            this.tbxCustomFormat.Name = "tbxCustomFormat";
-            this.tbxCustomFormat.Size = new System.Drawing.Size(119, 20);
-            this.tbxCustomFormat.TabIndex = 3;
-            // 
-            // rdbCustom
-            // 
-            this.rdbCustom.AutoSize = true;
-            this.rdbCustom.Location = new System.Drawing.Point(6, 71);
-            this.rdbCustom.Name = "rdbCustom";
-            this.rdbCustom.Size = new System.Drawing.Size(85, 17);
-            this.rdbCustom.TabIndex = 2;
-            this.rdbCustom.TabStop = true;
-            this.rdbCustom.Text = "Personnalisé";
-            this.rdbCustom.UseVisualStyleBackColor = true;
-            this.rdbCustom.CheckedChanged += new System.EventHandler(this.rdbCustom_CheckedChanged);
-            // 
-            // rdbExcel
-            // 
-            this.rdbExcel.AutoSize = true;
-            this.rdbExcel.Location = new System.Drawing.Point(165, 19);
-            this.rdbExcel.Name = "rdbExcel";
-            this.rdbExcel.Size = new System.Drawing.Size(51, 17);
-            this.rdbExcel.TabIndex = 1;
-            this.rdbExcel.TabStop = true;
-            this.rdbExcel.Text = "Excel";
-            this.rdbExcel.UseVisualStyleBackColor = true;
-            // 
-            // rdbRowCol
-            // 
-            this.rdbRowCol.AutoSize = true;
-            this.rdbRowCol.Location = new System.Drawing.Point(6, 19);
-            this.rdbRowCol.Name = "rdbRowCol";
-            this.rdbRowCol.Size = new System.Drawing.Size(111, 17);
-            this.rdbRowCol.TabIndex = 0;
-            this.rdbRowCol.TabStop = true;
-            this.rdbRowCol.Text = "Lignes / Colonnes";
-            this.rdbRowCol.UseVisualStyleBackColor = true;
-            // 
-            // lblNbCol
-            // 
-            this.lblNbCol.AutoSize = true;
-            this.lblNbCol.Location = new System.Drawing.Point(78, 35);
-            this.lblNbCol.Name = "lblNbCol";
-            this.lblNbCol.Size = new System.Drawing.Size(66, 13);
-            this.lblNbCol.TabIndex = 7;
-            this.lblNbCol.Text = "NBColonnes";
+            this.nudCol.Location = new System.Drawing.Point(93, 56);
+            this.nudCol.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudCol.Name = "nudCol";
+            this.nudCol.Size = new System.Drawing.Size(34, 20);
+            this.nudCol.TabIndex = 5;
+            this.nudCol.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // tbxCustomConfigName
             // 
@@ -352,46 +392,7 @@
             this.tsmAbout.Name = "tsmAbout";
             this.tsmAbout.Size = new System.Drawing.Size(24, 20);
             this.tsmAbout.Text = "?";
-            // 
-            // gbFormat
-            // 
-            this.gbFormat.Controls.Add(this.rdbRowCol);
-            this.gbFormat.Controls.Add(this.rdbExcel);
-            this.gbFormat.Controls.Add(this.rdbCustom);
-            this.gbFormat.Controls.Add(this.tbxCustomFormat);
-            this.gbFormat.Location = new System.Drawing.Point(12, 16);
-            this.gbFormat.Name = "gbFormat";
-            this.gbFormat.Size = new System.Drawing.Size(226, 100);
-            this.gbFormat.TabIndex = 13;
-            this.gbFormat.TabStop = false;
-            this.gbFormat.Text = "Format";
-            // 
-            // gbRowCol
-            // 
-            this.gbRowCol.Controls.Add(this.lblNbCol);
-            this.gbRowCol.Controls.Add(this.lblNbRow);
-            this.gbRowCol.Controls.Add(this.nudRow);
-            this.gbRowCol.Controls.Add(this.nudCol);
-            this.gbRowCol.Location = new System.Drawing.Point(245, 16);
-            this.gbRowCol.Name = "gbRowCol";
-            this.gbRowCol.Size = new System.Drawing.Size(150, 100);
-            this.gbRowCol.TabIndex = 14;
-            this.gbRowCol.TabStop = false;
-            this.gbRowCol.Text = "Lignes / Colonnes";
-            // 
-            // gbViewType
-            // 
-            this.gbViewType.Controls.Add(this.chkZoomRight);
-            this.gbViewType.Controls.Add(this.chkZoomBottom);
-            this.gbViewType.Controls.Add(this.chkZoomTop);
-            this.gbViewType.Controls.Add(this.chkZoomLeft);
-            this.gbViewType.Controls.Add(this.cbxViewType);
-            this.gbViewType.Location = new System.Drawing.Point(12, 122);
-            this.gbViewType.Name = "gbViewType";
-            this.gbViewType.Size = new System.Drawing.Size(383, 80);
-            this.gbViewType.TabIndex = 15;
-            this.gbViewType.TabStop = false;
-            this.gbViewType.Text = "Type de vue";
+            this.tsmAbout.Click += new System.EventHandler(this.tsmAbout_Click);
             // 
             // frmConfig
             // 
@@ -415,16 +416,16 @@
             this.Text = "Multiple Browsers Emulator";
             this.Load += new System.EventHandler(this.frmConfig_Load);
             this.gbParam.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudCol)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRow)).EndInit();
-            this.msMain.ResumeLayout(false);
-            this.msMain.PerformLayout();
             this.gbFormat.ResumeLayout(false);
             this.gbFormat.PerformLayout();
-            this.gbRowCol.ResumeLayout(false);
-            this.gbRowCol.PerformLayout();
             this.gbViewType.ResumeLayout(false);
             this.gbViewType.PerformLayout();
+            this.gbRowCol.ResumeLayout(false);
+            this.gbRowCol.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCol)).EndInit();
+            this.msMain.ResumeLayout(false);
+            this.msMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
