@@ -21,7 +21,7 @@ function getConnexion() {
 
 
 /* Fonction permettant d'ajouter dans la base de données les valeurs du jeu du morpion  */
-function morpion($case,$valeur)
+function play($case,$valeur)
 {
     $connexion = getConnexion();
     $request = $connexion->prepare("INSERT INTO `morpion` (`case`,`valeur`) VALUES (:case, :valeur)");
@@ -31,10 +31,23 @@ function morpion($case,$valeur)
 }
 
 /* Fonction pour les cases du morpion */
-function getValeurs(){
+function getArray(){
     try {
         $connexion = getConnexion();
         $requete = $connexion->prepare("SELECT * FROM morpion;");
+        $requete->execute();
+        $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+        return $resultat;
+    } catch (PDOException $e) {
+        throw $e;
+    }
+}
+
+/* Fonctin pour savoir qui as jouer (joueur 1 ou 2) */
+function setTurn(){
+    try {
+        $connexion = getConnexion();
+        $requete = $connexion->prepare("SELECT valeur FROM `morpion` WHERE `case` = 10;");
         $requete->execute();
         $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
         return $resultat;

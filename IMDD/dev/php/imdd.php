@@ -5,14 +5,7 @@
  * Date: 09.03.2018
  * Time: 11:33
  */
-session_start();
 
-$_SESSION['id'] = $_GET['id'];
-$sessionID = $_SESSION['id'];
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-}
-var_dump($_SESSION);
 ?>
 <!doctype html>
 <html lang="fr">
@@ -26,9 +19,7 @@ var_dump($_SESSION);
     <script src="./js/bootstrap.js"></script>
 </head>
 <body>
-<h1>Écran <?php if (isset($id)) {
-        echo "$id";
-    }; ?></h1>
+<h1>Écran <?php if (isset($_GET['id'])) { echo $_GET['id'];}; ?></h1>
 <fieldset>
     <table class="table table-striped table-dark">
         <tbody>
@@ -53,16 +44,9 @@ for ($i = 1; $i < 10; $i++) {
     $ecran[$i][0] = $i;
     $ecran[$i][1] = "E";
 }
-
 if (isset($_GET['id'])){
     $id = $_GET['id'];
 }
-else{
-    echo "pas d'ID";
-    echo "<br>";
-    $id = "";
-}
-
 if ($id > count($ecran)){
     echo "plus grand que le tableau";
 }else if($id <= 0){
