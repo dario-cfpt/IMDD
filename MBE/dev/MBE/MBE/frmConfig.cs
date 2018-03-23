@@ -106,7 +106,9 @@ namespace MBE
 
         private void btnLauchEmulator_Click(object sender, EventArgs e)
         {
-            frmView view = new frmView();
+            frmView view = new frmView(this, Morpion);
+            view.Show();
+            this.Hide();
         }
 
         private void btnDeleteConfig_Click(object sender, EventArgs e)

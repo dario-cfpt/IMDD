@@ -38,8 +38,9 @@ namespace MBE
         }
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            abMBE frmAbout = new abMBE();
+            frmAbout frmAbout = new frmAbout();
             frmAbout.ShowDialog();
+
         }
 
         private void StartEmulator()
@@ -47,5 +48,9 @@ namespace MBE
 
         }
 
+        private void frmView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FrmConfig.Show();
+        }
     }
 }
