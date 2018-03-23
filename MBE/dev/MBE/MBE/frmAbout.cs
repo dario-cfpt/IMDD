@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace MBE
 {
-    partial class abMBE : Form
+    partial class frmAbout : Form
     {
-        public abMBE()
+        public frmAbout()
         {
             InitializeComponent();
             this.Text = String.Format("À propos de {0}", AssemblyTitle);

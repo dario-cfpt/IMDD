@@ -106,9 +106,15 @@ namespace MBE
 
         private void btnLauchEmulator_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             Emulator.GetIntance().ChangeCurrentConfig(CurrentConfig);
             frmView view = new frmView();
             view.ShowDialog();
+=======
+            frmView view = new frmView(this, Morpion);
+            view.Show();
+            this.Hide();
+>>>>>>> 3c661aa040f9a9494a9b0309501552be2658b835
         }
 
         private void btnDeleteConfig_Click(object sender, EventArgs e)
