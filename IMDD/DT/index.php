@@ -32,15 +32,5 @@
 </body>
 </html>
 <?php
-$ecran = array();
-for ($i = 1; $i <= 10; $i++) {
-    $ecran[$i][0] = $i;
-    $ecran[$i][1] = "E";
-}
 
-
-
-    if ($_GET['id']>$ecran.count()){
-    echo"error";
-    }
 ?>
