@@ -14,26 +14,26 @@ namespace MBE
     {
         private List<Config> _listConfig;
         private Config _morpion;
+        private Config _currentConfig;
+
         public List<Config> ListConfig { get => _listConfig; set => _listConfig = value; }
         public Config Morpion { get => _morpion; set => _morpion = value; }
+        public Config CurrentConfig { get => _currentConfig; set => _currentConfig = value; }
 
         public frmConfig()
         {
             InitializeComponent();
 
             ListConfig = new List<Config>();
-            Morpion = new Config("Morpion", "https://10.134.96.14/Morpion.php", "row/col", 3, 3);
+            Morpion = new Config("Morpion", "https://10.134.97.39/php/imdd.php/", "row/col", 3, 3);
 
             ListConfig.Add(Morpion);
-            foreach (Config  configuration in ListConfig)
+            foreach (Config configuration in ListConfig)
             {
                 cbxConfig.Items.Add(configuration.ConfigName);
             }
             rdbRowCol.Checked = true;
             cbxConfig.SelectedIndex = 0;
-            
-
-
         }
 
         private void btnAddConfig_Click(object sender, EventArgs e)
@@ -93,9 +93,9 @@ namespace MBE
 
                 Emulator.GetIntance().CreateConfig(configurationName, url, paramURL, row, col, zoomTop, zoomRight, zoomBottom, zoomLeft);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -106,7 +106,9 @@ namespace MBE
 
         private void btnLauchEmulator_Click(object sender, EventArgs e)
         {
+            Emulator.GetIntance().ChangeCurrentConfig(CurrentConfig);
             frmView view = new frmView();
+            view.ShowDialog();
         }
 
         private void btnDeleteConfig_Click(object sender, EventArgs e)
@@ -124,12 +126,20 @@ namespace MBE
 
         private void cbxConfig_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string name = "";
-            cbxViewType.SelectedIndex = 0;
-            tbxCustomFormat.Enabled = false;
-            nudCol.Value = Morpion.Col;
-            nudRow.Value = Morpion.Row;
-            cbxConfig.Items.Add(ListConfig.Select(c => c.ConfigName == Morpion.ConfigName).ToArray()[0]);
+            try
+            {
+                CurrentConfig = ListConfig[cbxConfig.SelectedIndex];
+                string name = "";
+                cbxViewType.SelectedIndex = 0;
+                tbxCustomFormat.Enabled = false;
+                nudCol.Value = Morpion.Col;
+                nudRow.Value = Morpion.Row;
+                // cbxConfig.Items.Add(ListConfig.Select(c => c.ConfigName == Morpion.ConfigName).ToArray()[0]);
+                tbxWindowURL.Text = Morpion.Url;
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cbxViewType_SelectedIndexChanged(object sender, EventArgs e)
@@ -195,7 +205,14 @@ namespace MBE
 
         private void frmConfig_Load(object sender, EventArgs e)
         {
-
+            #region disable component
+            gbParam.Enabled = false;
+            tbxWindowURL.Enabled = false;
+            btnAddConfig.Enabled = false;
+            btnDeleteConfig.Enabled = false;
+            btnModifyConfig.Enabled = false;
+            lblCustomConfigName.Enabled = false;
+            #endregion
         }
     }
 }

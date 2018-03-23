@@ -33,13 +33,12 @@
             this.lblCustomConfigName = new System.Windows.Forms.Label();
             this.cbxConfig = new System.Windows.Forms.ComboBox();
             this.tbxWindowURL = new System.Windows.Forms.TextBox();
-            this.gbFormat = new System.Windows.Forms.GroupBox();
+            this.gbParam = new System.Windows.Forms.GroupBox();
             this.chkZoomBottom = new System.Windows.Forms.CheckBox();
             this.chkZoomLeft = new System.Windows.Forms.CheckBox();
             this.chkZoomRight = new System.Windows.Forms.CheckBox();
             this.chkZoomTop = new System.Windows.Forms.CheckBox();
             this.cbxViewType = new System.Windows.Forms.ComboBox();
-            this.lblViewType = new System.Windows.Forms.Label();
             this.lblNbRow = new System.Windows.Forms.Label();
             this.nudCol = new System.Windows.Forms.NumericUpDown();
             this.nudRow = new System.Windows.Forms.NumericUpDown();
@@ -57,10 +56,16 @@
             this.tsmConfiguration = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.gbFormat.SuspendLayout();
+            this.gbFormat = new System.Windows.Forms.GroupBox();
+            this.gbRowCol = new System.Windows.Forms.GroupBox();
+            this.gbViewType = new System.Windows.Forms.GroupBox();
+            this.gbParam.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRow)).BeginInit();
             this.msMain.SuspendLayout();
+            this.gbFormat.SuspendLayout();
+            this.gbRowCol.SuspendLayout();
+            this.gbViewType.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblConfig
@@ -109,33 +114,23 @@
             this.tbxWindowURL.TextChanged += new System.EventHandler(this.tbxWindowURL_TextChanged);
             this.tbxWindowURL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxWindowURL_KeyPress);
             // 
-            // gbFormat
+            // gbParam
             // 
-            this.gbFormat.Controls.Add(this.chkZoomBottom);
-            this.gbFormat.Controls.Add(this.chkZoomLeft);
-            this.gbFormat.Controls.Add(this.chkZoomRight);
-            this.gbFormat.Controls.Add(this.chkZoomTop);
-            this.gbFormat.Controls.Add(this.cbxViewType);
-            this.gbFormat.Controls.Add(this.lblViewType);
-            this.gbFormat.Controls.Add(this.lblNbRow);
-            this.gbFormat.Controls.Add(this.nudCol);
-            this.gbFormat.Controls.Add(this.nudRow);
-            this.gbFormat.Controls.Add(this.tbxCustomFormat);
-            this.gbFormat.Controls.Add(this.rdbCustom);
-            this.gbFormat.Controls.Add(this.rdbExcel);
-            this.gbFormat.Controls.Add(this.rdbRowCol);
-            this.gbFormat.Location = new System.Drawing.Point(15, 112);
-            this.gbFormat.Name = "gbFormat";
-            this.gbFormat.Size = new System.Drawing.Size(407, 211);
-            this.gbFormat.TabIndex = 5;
-            this.gbFormat.TabStop = false;
-            this.gbFormat.Text = "Format";
-            this.gbFormat.Enter += new System.EventHandler(this.gbFormat_Enter);
+            this.gbParam.Controls.Add(this.gbFormat);
+            this.gbParam.Controls.Add(this.gbViewType);
+            this.gbParam.Controls.Add(this.gbRowCol);
+            this.gbParam.Location = new System.Drawing.Point(15, 112);
+            this.gbParam.Name = "gbParam";
+            this.gbParam.Size = new System.Drawing.Size(407, 211);
+            this.gbParam.TabIndex = 5;
+            this.gbParam.TabStop = false;
+            this.gbParam.Text = "Paramètres";
+            this.gbParam.Enter += new System.EventHandler(this.gbFormat_Enter);
             // 
             // chkZoomBottom
             // 
             this.chkZoomBottom.AutoSize = true;
-            this.chkZoomBottom.Location = new System.Drawing.Point(215, 188);
+            this.chkZoomBottom.Location = new System.Drawing.Point(205, 52);
             this.chkZoomBottom.Name = "chkZoomBottom";
             this.chkZoomBottom.Size = new System.Drawing.Size(73, 17);
             this.chkZoomBottom.TabIndex = 12;
@@ -145,7 +140,7 @@
             // chkZoomLeft
             // 
             this.chkZoomLeft.AutoSize = true;
-            this.chkZoomLeft.Location = new System.Drawing.Point(110, 157);
+            this.chkZoomLeft.Location = new System.Drawing.Point(97, 29);
             this.chkZoomLeft.Name = "chkZoomLeft";
             this.chkZoomLeft.Size = new System.Drawing.Size(92, 17);
             this.chkZoomLeft.TabIndex = 11;
@@ -155,7 +150,7 @@
             // chkZoomRight
             // 
             this.chkZoomRight.AutoSize = true;
-            this.chkZoomRight.Location = new System.Drawing.Point(318, 157);
+            this.chkZoomRight.Location = new System.Drawing.Point(301, 29);
             this.chkZoomRight.Name = "chkZoomRight";
             this.chkZoomRight.Size = new System.Drawing.Size(76, 17);
             this.chkZoomRight.TabIndex = 10;
@@ -165,7 +160,7 @@
             // chkZoomTop
             // 
             this.chkZoomTop.AutoSize = true;
-            this.chkZoomTop.Location = new System.Drawing.Point(215, 132);
+            this.chkZoomTop.Location = new System.Drawing.Point(206, 10);
             this.chkZoomTop.Name = "chkZoomTop";
             this.chkZoomTop.Size = new System.Drawing.Size(77, 17);
             this.chkZoomTop.TabIndex = 9;
@@ -179,25 +174,16 @@
             this.cbxViewType.Items.AddRange(new object[] {
             "Standard",
             "Zoomé"});
-            this.cbxViewType.Location = new System.Drawing.Point(18, 153);
+            this.cbxViewType.Location = new System.Drawing.Point(5, 25);
             this.cbxViewType.Name = "cbxViewType";
             this.cbxViewType.Size = new System.Drawing.Size(85, 21);
             this.cbxViewType.TabIndex = 8;
             this.cbxViewType.SelectedIndexChanged += new System.EventHandler(this.cbxViewType_SelectedIndexChanged);
             // 
-            // lblViewType
-            // 
-            this.lblViewType.AutoSize = true;
-            this.lblViewType.Location = new System.Drawing.Point(15, 136);
-            this.lblViewType.Name = "lblViewType";
-            this.lblViewType.Size = new System.Drawing.Size(73, 13);
-            this.lblViewType.TabIndex = 7;
-            this.lblViewType.Text = "Type de vue :";
-            // 
             // lblNbRow
             // 
             this.lblNbRow.AutoSize = true;
-            this.lblNbRow.Location = new System.Drawing.Point(262, 38);
+            this.lblNbRow.Location = new System.Drawing.Point(5, 35);
             this.lblNbRow.Name = "lblNbRow";
             this.lblNbRow.Size = new System.Drawing.Size(52, 13);
             this.lblNbRow.TabIndex = 6;
@@ -205,7 +191,7 @@
             // 
             // nudCol
             // 
-            this.nudCol.Location = new System.Drawing.Point(350, 87);
+            this.nudCol.Location = new System.Drawing.Point(93, 56);
             this.nudCol.Minimum = new decimal(new int[] {
             1,
             0,
@@ -222,7 +208,7 @@
             // 
             // nudRow
             // 
-            this.nudRow.Location = new System.Drawing.Point(275, 87);
+            this.nudRow.Location = new System.Drawing.Point(18, 56);
             this.nudRow.Minimum = new decimal(new int[] {
             1,
             0,
@@ -239,7 +225,7 @@
             // 
             // tbxCustomFormat
             // 
-            this.tbxCustomFormat.Location = new System.Drawing.Point(109, 86);
+            this.tbxCustomFormat.Location = new System.Drawing.Point(97, 71);
             this.tbxCustomFormat.Name = "tbxCustomFormat";
             this.tbxCustomFormat.Size = new System.Drawing.Size(119, 20);
             this.tbxCustomFormat.TabIndex = 3;
@@ -247,7 +233,7 @@
             // rdbCustom
             // 
             this.rdbCustom.AutoSize = true;
-            this.rdbCustom.Location = new System.Drawing.Point(18, 86);
+            this.rdbCustom.Location = new System.Drawing.Point(6, 71);
             this.rdbCustom.Name = "rdbCustom";
             this.rdbCustom.Size = new System.Drawing.Size(85, 17);
             this.rdbCustom.TabIndex = 2;
@@ -259,7 +245,7 @@
             // rdbExcel
             // 
             this.rdbExcel.AutoSize = true;
-            this.rdbExcel.Location = new System.Drawing.Point(177, 34);
+            this.rdbExcel.Location = new System.Drawing.Point(165, 19);
             this.rdbExcel.Name = "rdbExcel";
             this.rdbExcel.Size = new System.Drawing.Size(51, 17);
             this.rdbExcel.TabIndex = 1;
@@ -270,7 +256,7 @@
             // rdbRowCol
             // 
             this.rdbRowCol.AutoSize = true;
-            this.rdbRowCol.Location = new System.Drawing.Point(18, 34);
+            this.rdbRowCol.Location = new System.Drawing.Point(6, 19);
             this.rdbRowCol.Name = "rdbRowCol";
             this.rdbRowCol.Size = new System.Drawing.Size(111, 17);
             this.rdbRowCol.TabIndex = 0;
@@ -281,7 +267,7 @@
             // lblNbCol
             // 
             this.lblNbCol.AutoSize = true;
-            this.lblNbCol.Location = new System.Drawing.Point(347, 150);
+            this.lblNbCol.Location = new System.Drawing.Point(78, 35);
             this.lblNbCol.Name = "lblNbCol";
             this.lblNbCol.Size = new System.Drawing.Size(66, 13);
             this.lblNbCol.TabIndex = 7;
@@ -367,6 +353,46 @@
             this.tsmAbout.Size = new System.Drawing.Size(24, 20);
             this.tsmAbout.Text = "?";
             // 
+            // gbFormat
+            // 
+            this.gbFormat.Controls.Add(this.rdbRowCol);
+            this.gbFormat.Controls.Add(this.rdbExcel);
+            this.gbFormat.Controls.Add(this.rdbCustom);
+            this.gbFormat.Controls.Add(this.tbxCustomFormat);
+            this.gbFormat.Location = new System.Drawing.Point(12, 16);
+            this.gbFormat.Name = "gbFormat";
+            this.gbFormat.Size = new System.Drawing.Size(226, 100);
+            this.gbFormat.TabIndex = 13;
+            this.gbFormat.TabStop = false;
+            this.gbFormat.Text = "Format";
+            // 
+            // gbRowCol
+            // 
+            this.gbRowCol.Controls.Add(this.lblNbCol);
+            this.gbRowCol.Controls.Add(this.lblNbRow);
+            this.gbRowCol.Controls.Add(this.nudRow);
+            this.gbRowCol.Controls.Add(this.nudCol);
+            this.gbRowCol.Location = new System.Drawing.Point(245, 16);
+            this.gbRowCol.Name = "gbRowCol";
+            this.gbRowCol.Size = new System.Drawing.Size(150, 100);
+            this.gbRowCol.TabIndex = 14;
+            this.gbRowCol.TabStop = false;
+            this.gbRowCol.Text = "Lignes / Colonnes";
+            // 
+            // gbViewType
+            // 
+            this.gbViewType.Controls.Add(this.chkZoomRight);
+            this.gbViewType.Controls.Add(this.chkZoomBottom);
+            this.gbViewType.Controls.Add(this.chkZoomTop);
+            this.gbViewType.Controls.Add(this.chkZoomLeft);
+            this.gbViewType.Controls.Add(this.cbxViewType);
+            this.gbViewType.Location = new System.Drawing.Point(12, 122);
+            this.gbViewType.Name = "gbViewType";
+            this.gbViewType.Size = new System.Drawing.Size(383, 80);
+            this.gbViewType.TabIndex = 15;
+            this.gbViewType.TabStop = false;
+            this.gbViewType.Text = "Type de vue";
+            // 
             // frmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,8 +403,7 @@
             this.Controls.Add(this.btnDeleteConfig);
             this.Controls.Add(this.btnAddConfig);
             this.Controls.Add(this.tbxCustomConfigName);
-            this.Controls.Add(this.lblNbCol);
-            this.Controls.Add(this.gbFormat);
+            this.Controls.Add(this.gbParam);
             this.Controls.Add(this.tbxWindowURL);
             this.Controls.Add(this.cbxConfig);
             this.Controls.Add(this.lblCustomConfigName);
@@ -389,12 +414,17 @@
             this.Name = "frmConfig";
             this.Text = "Multiple Browsers Emulator";
             this.Load += new System.EventHandler(this.frmConfig_Load);
-            this.gbFormat.ResumeLayout(false);
-            this.gbFormat.PerformLayout();
+            this.gbParam.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudCol)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRow)).EndInit();
             this.msMain.ResumeLayout(false);
             this.msMain.PerformLayout();
+            this.gbFormat.ResumeLayout(false);
+            this.gbFormat.PerformLayout();
+            this.gbRowCol.ResumeLayout(false);
+            this.gbRowCol.PerformLayout();
+            this.gbViewType.ResumeLayout(false);
+            this.gbViewType.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,13 +437,12 @@
         private System.Windows.Forms.Label lblCustomConfigName;
         private System.Windows.Forms.ComboBox cbxConfig;
         private System.Windows.Forms.TextBox tbxWindowURL;
-        private System.Windows.Forms.GroupBox gbFormat;
+        private System.Windows.Forms.GroupBox gbParam;
         private System.Windows.Forms.CheckBox chkZoomBottom;
         private System.Windows.Forms.CheckBox chkZoomLeft;
         private System.Windows.Forms.CheckBox chkZoomRight;
         private System.Windows.Forms.CheckBox chkZoomTop;
         private System.Windows.Forms.ComboBox cbxViewType;
-        private System.Windows.Forms.Label lblViewType;
         private System.Windows.Forms.Label lblNbRow;
         private System.Windows.Forms.NumericUpDown nudCol;
         private System.Windows.Forms.NumericUpDown nudRow;
@@ -431,6 +460,9 @@
         private System.Windows.Forms.ToolStripMenuItem tsmConfiguration;
         private System.Windows.Forms.ToolStripMenuItem tsmHelp;
         private System.Windows.Forms.ToolStripMenuItem tsmAbout;
+        private System.Windows.Forms.GroupBox gbFormat;
+        private System.Windows.Forms.GroupBox gbViewType;
+        private System.Windows.Forms.GroupBox gbRowCol;
     }
 }
 
