@@ -25,7 +25,7 @@ namespace MBE
             InitializeComponent();
 
             ListConfig = new List<Config>();
-            Morpion = new Config("Morpion", "https://10.134.97.39/php/imdd.php/", "row/col", 3, 3);
+            Morpion = new Config("Morpion", "http://10.134.97.39/php/imdd.php", "id", 3, 3);
 
             ListConfig.Add(Morpion);
             foreach (Config configuration in ListConfig)
@@ -55,7 +55,7 @@ namespace MBE
                 if (rdbRowCol.Checked)
                 {
                     urlParamColRow = true;
-                    paramURL = "row1/col1";
+                    paramURL = "id";
                 }
                 if (rdbExcel.Checked)
                 {
@@ -106,15 +106,9 @@ namespace MBE
 
         private void btnLauchEmulator_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            Emulator.GetIntance().ChangeCurrentConfig(CurrentConfig);
-            frmView view = new frmView();
-            view.ShowDialog();
-=======
             frmView view = new frmView(this, Morpion);
             view.Show();
             this.Hide();
->>>>>>> 3c661aa040f9a9494a9b0309501552be2658b835
         }
 
         private void btnDeleteConfig_Click(object sender, EventArgs e)
