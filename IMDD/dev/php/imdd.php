@@ -52,4 +52,5 @@ if ($id > count($ecran)){
 }else if($id <= 0){
         echo"plus petit que 1";
     }
+    
 ?>
