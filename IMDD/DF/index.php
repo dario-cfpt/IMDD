@@ -2,11 +2,11 @@
 /*
  * Author : Dylan Peiry
  * Date : 09.03.2018
- * Name : IMDD
+ * Name : imdd
  * Description : A definir
  * Version : 1.0
  */
-
+require_once 'php/imdd.php';
 $index = filter_input(1, 'i', FILTER_SANITIZE_NUMBER_INT);
 $errormsg;
 $title;
@@ -63,7 +63,7 @@ if (empty($index)) {
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownGames">
                     <a class="dropdown-item disabled" href="#" disabled>Tic Tac Toe</a>
-                    <a class="dropdown-item" href="snake.html">Snake</a>
+                    <a class="dropdown-item" href="pages/snake.html">Snake</a>
                     <a class="dropdown-item disabled" href="#">Pong</a>
                     <a class="dropdown-item disabled" href="#">Taquin</a>
                 </div>
