@@ -10,7 +10,8 @@ class IMDD
 {
     const DEFAULT_COLUMNS = 3;
     const DEFAULT_ROWS = 3;
-    const MODES = array("Tic Tac Toe","Taquin","Snake");
+    const DEFAULT_MODE = 0;
+    const MODES = array(0 => "Home", 1 => "TicTacToe", 2 => "Taquin", 3 => "Snake");
 
     private static $_objInstance;
 
@@ -22,6 +23,7 @@ class IMDD
     {
         $this->setCols(self::DEFAULT_COLUMNS);
         $this->setRows(self::DEFAULT_ROWS);
+        $this->setMode(self::MODES[self::DEFAULT_MODE]);
     }
 
     public static function getInstance()
@@ -56,11 +58,13 @@ class IMDD
         $this->_rows = $n;
     }
 
-    public function getMode(){
+    public function getMode()
+    {
         return $this->_mode;
     }
 
-    public function setMode($m){
+    public function setMode($m)
+    {
         $this->_mode = $m;
     }
 }
