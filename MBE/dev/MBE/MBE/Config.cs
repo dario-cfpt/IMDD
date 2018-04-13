@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace MBE
 {
+    [Serializable]
     /// <summary>
     /// Contains datas for emulate devices
     /// </summary>
@@ -28,6 +29,11 @@ namespace MBE
         private bool _zoomRight;
         private bool _zoomLeft;
         private bool _zoomBottom;
+
+        public Config()
+        {
+
+        }
 
         /// <summary>
         /// Initialize a new config

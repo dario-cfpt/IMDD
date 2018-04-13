@@ -1,0 +1,26 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40pt;
+}
+
+fieldset {
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 20%;
+    text-align: center;
+    border-radius: 6px;
+}
+
+table {
+    border-radius: 6px;
+}
+
+td a {
+    display:block;
+    width:100%;
+}
+
+a:hover{
+    color: red;
+}
