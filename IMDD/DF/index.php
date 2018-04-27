@@ -12,11 +12,12 @@ $errormsg;
 $title;
 
 if (empty($index)) {
-    $errormsg = "Aucun paramètre reçu n'est correct.";
+    $errormsg = "Un des paramètres reçu n'est pas correct.";
     $title = "Home";
 } else {
     $title = $index;
 }
+var_dump(IMDD::getInstance());
 ?>
 <html>
 <head>
@@ -54,7 +55,7 @@ if (empty($index)) {
                 <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Exemple</a>
+                <a class="nav-link" href="#">Configuration</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownGames" role="button" data-toggle="dropdown"
@@ -74,5 +75,8 @@ if (empty($index)) {
         </ul>
     </div>
 </nav>
+<?php if (isset($errormsg)) { ?>
+    <div class="alert alert-danger"><?= $errormsg; ?></div>
+<?php } ?>
 </body>
 </html>
