@@ -13,6 +13,7 @@ require_once "fonctionsBD.php";
     <meta charset="utf-8">
     <title>Menu</title>
     <link href="../css/bootstrap.css" rel="stylesheet">
+    <meta http-equiv="refresh" content="1">
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script
@@ -49,7 +50,6 @@ if ($id > count($ecran)) {
 } else if ($id <= 0) {
     echo "plus petit que 1";
 }
-
 
 
 if ($board[$_GET['id']])
